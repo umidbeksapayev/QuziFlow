@@ -1,0 +1,80 @@
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id           String             @id @default(uuid())
+  email        String             @unique
+  username     String
+  password     String
+  createdAt    DateTime           @default(now())
+  updatedAt    DateTime           @updatedAt
+  cardStatuses UserCardStatus[]
+  statistics   UserStatistics?
+  sessions     StudySession[]
+  customCards  Flashcard[]
+}
+
+model Flashcard {
+  id           String             @id @default(uuid())
+  question     String
+  answer       String
+  category     String
+  difficulty   String             // "easy", "medium", "hard"
+  tags         String             // Comma-separated tags (e.g., "javascript,promise")
+  createdAt    DateTime           @default(now())
+  updatedAt    DateTime           @updatedAt
+  
+  // Custom user cards (null means global/system card)
+  userId       String?
+  creator      User?              @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  userStatuses UserCardStatus[]
+}
+
+model UserCardStatus {
+  id             String    @id @default(uuid())
+  userId         String
+  cardId         String
+  repetitions    Int       @default(0)       // n for SM-2
+  interval       Int       @default(0)       // I (in days) for SM-2
+  easinessFactor Float     @default(2.5)     // EF for SM-2
+  nextReviewAt   DateTime  @default(now())
+  lastResponse   String    @default("none")  // "correct", "wrong", "none"
+  updatedAt      DateTime  @updatedAt
+
+  user           User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  card           Flashcard @relation(fields: [cardId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, cardId])
+}
+
+model UserStatistics {
+  id             String   @id @default(uuid())
+  userId         String   @unique
+  totalSolved    Int      @default(0)
+  correctAnswers Int      @default(0)
+  wrongAnswers   Int      @default(0)
+  accuracy       Float    @default(0.0)      // percentage
+  streak         Int      @default(0)
+  lastActiveDate String?  // Store as YYYY-MM-DD to track daily streaks
+  updatedAt      DateTime @updatedAt
+
+  user           User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model StudySession {
+  id           String   @id @default(uuid())
+  userId       String
+  date         String   // YYYY-MM-DD for grouping activities in heatmap
+  correctCount Int      @default(0)
+  wrongCount   Int      @default(0)
+  createdAt    DateTime @default(now())
+
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}

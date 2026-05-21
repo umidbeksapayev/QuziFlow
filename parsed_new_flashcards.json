@@ -1,0 +1,82 @@
+[
+  {
+    "number": 51,
+    "question": "Terrasa nima?",
+    "answer": "Binoga tutashgan yoki alohida joylashgan, usti ochiq yoki soyabonli, pol to‘shamasiga ega bo‘lgan maxsus maydoncha (terrasa odatda to‘silmagan yoki panjara bilan to‘silgan ochiq joy bo‘ladi)."
+  },
+  {
+    "number": 52,
+    "question": "Turar-joy ko‘chmas mulk obyekti hisoblanadimi?",
+    "answer": "Ha, hisoblanadi."
+  },
+  {
+    "number": 53,
+    "question": "Turar-joyni yoki uning qismini noturar joy maqomiga o‘tkazish mumkinmi?",
+    "answer": "Ha, qonunchilikda belgilangan tartibda hokimlik yoki vakolatli arxitektura organlarining ruxsati bilan o‘tkazish mumkin."
+  },
+  {
+    "number": 54,
+    "question": "Noturar-joyni yoki uning qismini turar joy maqomiga o‘tkazish mumkinmi?",
+    "answer": "Ha, belgilangan shaharsozlik va sanitariya normalariga javob bergan taqdirda, ruxsatnoma asosida o‘tkazish mumkin."
+  },
+  {
+    "number": 55,
+    "question": "Balkon nima?",
+    "answer": "Binoning tashqi devori sirtidan bo‘rtib chiqqan, to‘silgan ochiq maydoncha."
+  },
+  {
+    "number": 56,
+    "question": "Kvartiraning umumiy maydoni nima?",
+    "answer": "Kvartiradagi barcha xonalarning (yashash xonalari va yordamchi xonalar – oshxona, koridor, vanna, ichki dahliz va h.k.) maydonlari yig‘indisi. (Amaldagi shaharsozlik normalariga ko‘ra balkonlar ma’lum bir pasaytiruvchi koeffitsient bilan kiritiladi yoki kiritilmaydi)."
+  },
+  {
+    "number": 57,
+    "question": "Chordoq nima?",
+    "answer": "Binoning yuqori qavati shifti, tashqi devorlari va tom yopgichi oralig‘idagi yashash uchun mo‘ljallanmagan joy/bo‘shliq."
+  },
+  {
+    "number": 58,
+    "question": "Turar joy binosidagi mansarda nima?",
+    "answer": "Tom konstruksiyasi ichida qurilgan va yashash uchun moslashtirilgan qavat (chodirqavat)."
+  },
+  {
+    "number": 59,
+    "question": "Yerto‘la nima?",
+    "answer": "Pol sathining balandligi yer sathidan binoning balandligi yarmidan ko‘proq chuqurlikda joylashgan bino qavati."
+  },
+  {
+    "number": 60,
+    "question": "Texnik qavat nima?",
+    "answer": "Muhandislik jihozlarini joylashtirish va kommunikatsiya tarmoqlarini (suv, isitish, elektr) o‘tkazish uchun mo‘ljallangan maxsus qavat (u yerto‘lada, qavatlar orasida yoki binoning eng yuqori q <truncated 31791 bytes> anday hujjatsiz, og‘zaki asossiz talabi."
+  },
+  {
+    "number": 189,
+    "question": "Ko‘chmas mulkka bo‘lgan huquqlarni davlat ro‘yxatidan o‘tkazishni rad etish asoslari noto‘g‘ri ko‘rsatilgan javobni toping.",
+    "answer": "Obyekt egasining doimiy yashash joyi respublikadan tashqarida ekanligi sababli rad etish (bu qonuniy asos emas)."
+  },
+  {
+    "number": 190,
+    "question": "Davlat yer kadastrining tarkibiy qismlari, davlat yer kadastrini yuritishning asosiy prinsiplari hamda davlat yer kadastrini yuritishda Davlat kadastrlari palatasi va uning hududiy boshqarmalarining vazifalarini nazarda tutuvchi Davlat yer kadastrini yuritish tartibi to‘g‘risidagi nizom qaysi ilovaga muvofiq tasdiqlangan?",
+    "answer": "Vazirlar Mahkamasining 389-sonli qarorining 1-ilovasiga muvofiq."
+  },
+  {
+    "number": 191,
+    "question": "Ko‘chmas mulk obyektiga tayyorlangan kadastr yig‘majildi natijasi bo‘yicha mulkdorga yoki uning ishonchnomasi asosida harakat qiluvchi shaxsga, shuningdek, mulkdorning merosxo‘riga qanday hujjat taqdim etiladi?",
+    "answer": "QR-kodli rasmiy Kadastr pasporti."
+  },
+  {
+    "number": 192,
+    "question": "Davlat yer kadastri ma’lumotlari qanday turlarga bo‘linadi?",
+    "answer": "Grafik va matnli (atributiv) ma’lumotlarga bo‘linadi."
+  },
+  {
+    "number": 193,
+    "question": "Vazirlar Mahkamasining 2021-yil 22-iyundagi 389-son qaroriga 2-ilovasi nizomi qaysi tartibni belgilaydi?",
+    "answer": "\"Binolar va inshootlar davlat kadastrini yuritish tartibi\"ni belgilaydi."
+  },
+  {
+    "number": 194,
+    "question": "Kadastr yig‘majildining muqovasi va tarkibidagi elektron axborot tizimida shakllanadigan ma’lumotlarning namunaviy jadvallari, qaydnomalari va blankalari shakllarini tasdiqlash haqida O‘zbekiston Respublikasi Davlat soliq qo‘mitasi huzuridagi Kadastr agentligi direktorining buyrug‘i Adliya vazirligi tomonidan ro‘yxatdan o‘tkazilgan sanasi va ro‘yxat raqami?",
+    "answer": "Kadastr agentligi direktorining buyrug‘i Adliya vazirligi tomonidan 2021-yil noyabr/dekabr oylarida tegishli maxsus reestr raqami bilan davlat ro‘yxatidan o‘tkazilgan (Yagona ichki me’yoriy hujjatlar tasniflagich raqami bilan). </USER_REQUEST> <ADDITIONAL_METADATA> The current local time is: 2026-05-21T22:46:57+05:00. </ADDITIONAL_METADATA>"
+  }
+]

@@ -1,0 +1,68 @@
+<USER_REQUEST>
+1-40 gacha bo‘lgan savollar va yechimlar
+1. Ko‘chmas mulk obyektlarining davlat kadastri sohasida davlat xizmatlari narxlarini
+belgilash tartibi qaysi qarorga asosan tasdiqlangan?
+Javob: Vazirlar Mahkamasining 2014-yil 10-iyuldagi &quot;Ko‘chmas mulk obyektlarining davlat
+kadastri sohasida davlat xizmatlari narxlarini belgilash tartibini takomillashtirish to‘g‘risida&quot;gi
+186-sonli qaroriga asosan.
+2. Hisoblang: 3 · ((6.5 - 0.5) - (2.5 + 2)) + 7.5 · 2 - 3.5 = ?
+Javob: Yechimi: 3 · (6 - 4.5) + 15 - 3.5 = 3 · 1.5 + 11.5 = 4.5 + 11.5 = 16.
+16.
+3. Ko‘chmas mulk obyektlariga bo‘lgan huquqlar davlat ro‘yxatidan o‘tkazilmasdan
+amalga oshirilgan ko‘chmas mulk bilan bog‘liq bitimlar haqiqiy hisoblanadimi?
+Javob: Yo‘q, haqiqiy hisoblanmaydi (bunday bitimlar yuridik kuchga ega emas va haqiqiy
+emas deb topiladi).
+4. Vaqtinchalik imorat nima?
+Javob: Poydevorga ega bo‘lmagan, yer bilan mustahkam bog‘lanmagan, konstruktsiyasi
+qismlarga ajraladigan va boshqa joyga ko‘chirilganda o‘zining xo‘jalik-funksional vazifasini
+yo‘qotmaydigan, muayyan muddatga qurilgan imorat (masalan: yengil kiosk, pavilyon,
+naves).
+5. Servitut nima?
+Javob: O‘zganing yer uchastkasidan cheklangan tarzda foydalanish huquqi.
+6. Kadastr yig‘majinildini shakllantirish natijalari bo‘yicha buyurtmachiga qanday hujjat
+beriladi?
+Javob: Kadastr pasporti taqdim etiladi.
+
+7. Yer uchastkalariga bo‘lgan mulk huquqini qaysi hujjatlarga asosan davlat ro‘yxatidan
+o‘tkaziladi?
+Javob: Davlat orderlari, auksion bayonnomalari, sud qarorlari va qonunchilikda belgilangan
+yer uchastkasiga bo‘lgan huquqni vujudga keltiruvchi boshqa huquq belgilovchi hujjatlar
+asosan.
+8. Yer fondidagi qishloq xo‘jaligi yerlarini boshqa toifaga o‘tkazish qaysi davlat
+organining vakolatlariga kiradi?
+Javob: O‘zbekiston Respublikasi Vazirlar Mahkamasi vakolatiga kiradi (ayrim hollarda
+Prezident qarorlari bilan).
+9. Davlat ro‘yxatidan o‘tkazuvchi organda yer uchastkasining mansubligi masalasida
+nizolar borligi haqida gu
+<truncated 43162 bytes>
+anday hujjatsiz, og‘zaki asossiz talabi.
+189. Ko‘chmas mulkka bo‘lgan huquqlarni davlat ro‘yxatidan o‘tkazishni rad etish
+asoslari noto‘g‘ri ko‘rsatilgan javobni toping.
+Javob: Obyekt egasining doimiy yashash joyi respublikadan tashqarida ekanligi sababli rad
+etish (bu qonuniy asos emas).
+190. Davlat yer kadastrining tarkibiy qismlari, davlat yer kadastrini yuritishning asosiy
+prinsiplari hamda davlat yer kadastrini yuritishda Davlat kadastrlari palatasi va uning
+hududiy boshqarmalarining vazifalarini nazarda tutuvchi Davlat yer kadastrini yuritish
+tartibi to‘g‘risidagi nizom qaysi ilovaga muvofiq tasdiqlangan?
+Javob: Vazirlar Mahkamasining 389-sonli qarorining 1-ilovasiga muvofiq.
+191. Ko‘chmas mulk obyektiga tayyorlangan kadastr yig‘majildi natijasi bo‘yicha
+mulkdorga yoki uning ishonchnomasi asosida harakat qiluvchi shaxsga, shuningdek,
+mulkdorning merosxo‘riga qanday hujjat taqdim etiladi?
+Javob: QR-kodli rasmiy Kadastr pasporti.
+192. Davlat yer kadastri ma’lumotlari qanday turlarga bo‘linadi?
+Javob: Grafik va matnli (atributiv) ma’lumotlarga bo‘linadi.
+193. Vazirlar Mahkamasining 2021-yil 22-iyundagi 389-son qaroriga 2-ilovasi nizomi qaysi
+tartibni belgilaydi?
+Javob: &quot;Binolar va inshootlar davlat kadastrini yuritish tartibi&quot;ni belgilaydi.
+194. Kadastr yig‘majildining muqovasi va tarkibidagi elektron axborot tizimida
+shakllanadigan ma’lumotlarning namunaviy jadvallari, qaydnomalari va blankalari
+shakllarini tasdiqlash haqida O‘zbekiston Respublikasi Davlat soliq qo‘mitasi huzuridagi
+Kadastr agentligi direktorining buyrug‘i Adliya vazirligi tomonidan ro‘yxatdan o‘tkazilgan
+sanasi va ro‘yxat raqami?
+Javob: Kadastr agentligi direktorining buyrug‘i Adliya vazirligi tomonidan 2021-yil
+noyabr/dekabr oylarida tegishli maxsus reestr raqami bilan davlat ro‘yxatidan o‘tkazilgan
+(Yagona ichki me’yoriy hujjatlar tasniflagich raqami bilan).
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-05-21T22:09:24+05:00.
+</ADDITIONAL_METADATA>

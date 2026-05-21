@@ -1,0 +1,70 @@
+<USER_REQUEST>
+kunlik takrorlash keraymaydi olib tashlayver va arlash savollarni funksiyasini ham qo'sh unda nechata savol ishlamoqchiligini tanlashi mumkin bo'lsin
+
+keyin savollar sonini ko'paytiramiz yana 50 tani ustiga  bu savollarni ham qo'sh:
+
+51. Terrasa nima?
+Javob: Binoga tutashgan yoki alohida joylashgan, usti ochiq yoki soyabonli, pol
+to‘shamasiga ega bo‘lgan maxsus maydoncha (terrasa odatda to‘silmagan yoki panjara
+bilan to‘silgan ochiq joy bo‘ladi).
+52. Turar-joy ko‘chmas mulk obyekti hisoblanadimi?
+Javob: Ha, hisoblanadi.
+53. Turar-joyni yoki uning qismini noturar joy maqomiga o‘tkazish mumkinmi?
+Javob: Ha, qonunchilikda belgilangan tartibda hokimlik yoki vakolatli arxitektura
+organlarining ruxsati bilan o‘tkazish mumkin.
+54. Noturar-joyni yoki uning qismini turar joy maqomiga o‘tkazish mumkinmi?
+Javob: Ha, belgilangan shaharsozlik va sanitariya normalariga javob bergan taqdirda,
+ruxsatnoma asosida o‘tkazish mumkin.
+55. Balkon nima?
+Javob: Binoning tashqi devori sirtidan bo‘rtib chiqqan, to‘silgan ochiq maydoncha.
+56. Kvartiraning umumiy maydoni nima?
+Javob: Kvartiradagi barcha xonalarning (yashash xonalari va yordamchi xonalar – oshxona,
+koridor, vanna, ichki dahliz va h.k.) maydonlari yig‘indisi. (Amaldagi shaharsozlik
+normalariga ko‘ra balkonlar ma’lum bir pasaytiruvchi koeffitsient bilan kiritiladi yoki
+kiritilmaydi).
+57. Chordoq nima?
+Javob: Binoning yuqori qavati shifti, tashqi devorlari va tom yopgichi oralig‘idagi yashash
+uchun mo‘ljallanmagan joy/bo‘shliq.
+58. Turar joy binosidagi mansarda nima?
+Javob: Tom konstruksiyasi ichida qurilgan va yashash uchun moslashtirilgan qavat
+(chodirqavat).
+59. Yerto‘la nima?
+Javob: Pol sathining balandligi yer sathidan binoning balandligi yarmidan ko‘proq
+chuqurlikda joylashgan bino qavati.
+
+60. Texnik qavat nima?
+Javob: Muhandislik jihozlarini joylashtirish va kommunikatsiya tarmoqlarini (suv, isitish,
+elektr) o‘tkazish uchun mo‘ljallangan maxsus qavat (u yerto‘lada, qavatlar orasida yoki
+binoning eng yuqori q
+<truncated 31791 bytes>
+anday hujjatsiz, og‘zaki asossiz talabi.
+189. Ko‘chmas mulkka bo‘lgan huquqlarni davlat ro‘yxatidan o‘tkazishni rad etish
+asoslari noto‘g‘ri ko‘rsatilgan javobni toping.
+Javob: Obyekt egasining doimiy yashash joyi respublikadan tashqarida ekanligi sababli rad
+etish (bu qonuniy asos emas).
+190. Davlat yer kadastrining tarkibiy qismlari, davlat yer kadastrini yuritishning asosiy
+prinsiplari hamda davlat yer kadastrini yuritishda Davlat kadastrlari palatasi va uning
+hududiy boshqarmalarining vazifalarini nazarda tutuvchi Davlat yer kadastrini yuritish
+tartibi to‘g‘risidagi nizom qaysi ilovaga muvofiq tasdiqlangan?
+Javob: Vazirlar Mahkamasining 389-sonli qarorining 1-ilovasiga muvofiq.
+191. Ko‘chmas mulk obyektiga tayyorlangan kadastr yig‘majildi natijasi bo‘yicha
+mulkdorga yoki uning ishonchnomasi asosida harakat qiluvchi shaxsga, shuningdek,
+mulkdorning merosxo‘riga qanday hujjat taqdim etiladi?
+Javob: QR-kodli rasmiy Kadastr pasporti.
+192. Davlat yer kadastri ma’lumotlari qanday turlarga bo‘linadi?
+Javob: Grafik va matnli (atributiv) ma’lumotlarga bo‘linadi.
+193. Vazirlar Mahkamasining 2021-yil 22-iyundagi 389-son qaroriga 2-ilovasi nizomi qaysi
+tartibni belgilaydi?
+Javob: &quot;Binolar va inshootlar davlat kadastrini yuritish tartibi&quot;ni belgilaydi.
+194. Kadastr yig‘majildining muqovasi va tarkibidagi elektron axborot tizimida
+shakllanadigan ma’lumotlarning namunaviy jadvallari, qaydnomalari va blankalari
+shakllarini tasdiqlash haqida O‘zbekiston Respublikasi Davlat soliq qo‘mitasi huzuridagi
+Kadastr agentligi direktorining buyrug‘i Adliya vazirligi tomonidan ro‘yxatdan o‘tkazilgan
+sanasi va ro‘yxat raqami?
+Javob: Kadastr agentligi direktorining buyrug‘i Adliya vazirligi tomonidan 2021-yil
+noyabr/dekabr oylarida tegishli maxsus reestr raqami bilan davlat ro‘yxatidan o‘tkazilgan
+(Yagona ichki me’yoriy hujjatlar tasniflagich raqami bilan).
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-05-21T22:46:57+05:00.
+</ADDITIONAL_METADATA>
