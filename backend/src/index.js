@@ -37,7 +37,11 @@ app.use((err, req, res, next) => {
   res.status(500).json({ message: 'Serverda ichki xatolik yuz berdi' });
 });
 
-// Start listening
-app.listen(PORT, () => {
-  console.log(`Server is running in ${process.env.NODE_ENV} mode on port ${PORT}`);
-});
+// Start listening (only if not on Vercel)
+if (!process.env.VERCEL) {
+  app.listen(PORT, () => {
+    console.log(`Server is running in ${process.env.NODE_ENV} mode on port ${PORT}`);
+  });
+}
+
+export default app;
