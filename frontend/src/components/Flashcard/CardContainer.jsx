@@ -1,8 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { useQuizStore } from '../../store/useQuizStore';
 import { useUIStore } from '../../store/useUIStore';
-import { HelpCircle, Check, X, RotateCcw, AlertTriangle, ArrowRight, Eye, RefreshCw } from 'lucide-react';
+import { HelpCircle, Check, X, RotateCcw, AlertTriangle, ArrowRight, Eye, RefreshCw, Clock } from 'lucide-react';
 import { CardSkeleton } from '../UI/Skeleton';
+
+// Helper to determine time limits based on card count
+const getTimeLimit = (numCards) => {
+  if (numCards <= 10) return 10 * 60; // 10 minutes
+  if (numCards <= 20) return 15 * 60; // 15 minutes
+  if (numCards <= 50) return 30 * 60; // 30 minutes
+  return 60 * 60; // 60 minutes default/all
+};
+
+// Format seconds into MM:SS
+const formatTime = (seconds) => {
+  const m = Math.floor(seconds / 60).toString().padStart(2, '0');
+  const s = (seconds % 60).toString().padStart(2, '0');
+  return `${m}:${s}`;
+};
 
 export default function CardContainer() {
   const {
@@ -25,16 +40,32 @@ export default function CardContainer() {
   const [sessionCorrect, setSessionCorrect] = useState(0);
   const [sessionWrong, setSessionWrong] = useState(0);
 
+  // Timer states
+  const [quizStarted, setQuizStarted] = useState(false);
+  const [timeLeft, setTimeLeft] = useState(0);
+  const [timerActive, setTimerActive] = useState(false);
+  const [forceFinished, setForceFinished] = useState(false);
+  const [totalTime, setTotalTime] = useState(0);
+
   // Initialize deck on mount
   useEffect(() => {
     fetchCards(mode);
   }, []);
 
+  // Listen to mode or limit changes to reset states
+  useEffect(() => {
+    setQuizStarted(false);
+    setForceFinished(false);
+    setTimeLeft(0);
+    setTimerActive(false);
+  }, [mode, limit]);
+
   // Keyboard shortcuts handler
   useEffect(() => {
     const handleKeyDown = (e) => {
-      // Ignore if there are no cards or if we finished the deck
-      if (cards.length === 0 || currentIndex >= cards.length || loading) return;
+      // Ignore if there are no cards, if not started, or if we finished the deck
+      const isFinished = (cards.length > 0 && currentIndex >= cards.length) || forceFinished;
+      if (!quizStarted || cards.length === 0 || isFinished || loading) return;
 
       if (e.code === 'Space') {
         e.preventDefault();
@@ -52,7 +83,38 @@ export default function CardContainer() {
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [cards, currentIndex, isFlipped, loading]);
+  }, [cards, currentIndex, isFlipped, loading, quizStarted, forceFinished]);
+
+  // Timer interval hook
+  useEffect(() => {
+    let interval = null;
+    const isFinished = (cards.length > 0 && currentIndex >= cards.length) || forceFinished;
+
+    if (quizStarted && timerActive && timeLeft > 0 && !isFinished) {
+      interval = setInterval(() => {
+        setTimeLeft((prev) => prev - 1);
+      }, 1000);
+    } else if (timeLeft === 0 && quizStarted && timerActive) {
+      setTimerActive(false);
+      setForceFinished(true);
+      addToast("Vaqt tugadi! Mashg'ulot yakunlandi.", 'warning');
+    }
+    return () => clearInterval(interval);
+  }, [quizStarted, timerActive, timeLeft, cards, currentIndex, forceFinished]);
+
+  const handleStartQuiz = () => {
+    if (cards.length === 0) return;
+    const timeLimit = getTimeLimit(cards.length);
+    setTimeLeft(timeLimit);
+    setTotalTime(timeLimit);
+    setQuizStarted(true);
+    setTimerActive(true);
+    setForceFinished(false);
+    setIsFlipped(false);
+    resetQuiz();
+    setSessionCorrect(0);
+    setSessionWrong(0);
+  };
 
   const handleAnswer = async (knew) => {
     const activeCard = cards[currentIndex];
@@ -68,7 +130,7 @@ export default function CardContainer() {
 
     setIsFlipped(false);
     
-    // Call server to update SM-2 parameters
+    // Call store to update SM-2 parameters
     await answerCard(activeCard.id, knew);
   };
 
@@ -77,12 +139,16 @@ export default function CardContainer() {
     setSessionCorrect(0);
     setSessionWrong(0);
     setIsFlipped(false);
+    setQuizStarted(false);
+    setForceFinished(false);
+    setTimeLeft(0);
+    setTimerActive(false);
     fetchCards(mode);
   };
 
   const activeCard = cards[currentIndex];
   const totalCards = cards.length;
-  const isFinished = totalCards > 0 && currentIndex >= totalCards;
+  const isFinished = (totalCards > 0 && currentIndex >= totalCards) || forceFinished;
 
   // Difficulty badge color mapping
   const getDifficultyBadge = (difficulty) => {
@@ -185,9 +251,54 @@ export default function CardContainer() {
             Yangilash
           </button>
         </div>
+      ) : !quizStarted && !isFinished ? (
+        /* START SCREEN */
+        <div className="max-w-md w-full mx-auto py-10 px-8 rounded-3xl border border-slate-200/60 dark:border-slate-800/60 bg-white/70 dark:bg-slate-900/40 glass-card text-center flex flex-col items-center gap-6 shadow-2xl animate-fade-in">
+          <div className="w-20 h-20 rounded-full bg-primary-500/10 text-primary-500 flex items-center justify-center animate-pulse">
+            <Clock className="w-10 h-10" />
+          </div>
+          
+          <div>
+            <h3 className="text-2xl font-extrabold text-slate-800 dark:text-white">Tayyormisiz?</h3>
+            <p className="text-sm text-slate-400 mt-2">
+              Boshlash tugmasini bosishingiz bilan mashg'ulot boshlanadi va taymer ishga tushadi.
+            </p>
+          </div>
+
+          <div className="w-full bg-slate-100/50 dark:bg-slate-900/50 rounded-2xl p-5 border border-slate-200/30 dark:border-slate-800/30 flex flex-col gap-3.5 text-left text-sm text-slate-700 dark:text-slate-200 font-medium">
+            <div className="flex justify-between items-center">
+              <span className="text-slate-400">Test rejimi:</span>
+              <span className="font-bold px-2 py-0.5 rounded bg-slate-200 dark:bg-slate-800 text-xs">
+                {mode === 'random'
+                  ? 'Aralash Savollar'
+                  : mode === 'mistakes'
+                  ? 'Xatolarni Takrorlash'
+                  : 'Barcha Savollar'}
+              </span>
+            </div>
+            <div className="flex justify-between items-center">
+              <span className="text-slate-400">Savollar soni:</span>
+              <span className="font-bold text-slate-950 dark:text-white">{totalCards} ta</span>
+            </div>
+            <div className="flex justify-between items-center">
+              <span className="text-slate-400">Berilgan vaqt:</span>
+              <span className="font-extrabold text-primary-600 dark:text-primary-400">
+                {Math.round(getTimeLimit(totalCards) / 60)} daqiqa
+              </span>
+            </div>
+          </div>
+
+          <button
+            onClick={handleStartQuiz}
+            className="w-full py-4 rounded-2xl bg-primary-500 hover:bg-primary-600 text-white font-extrabold text-sm shadow-xl shadow-primary-500/25 transition-all duration-300 hover:scale-[1.02] flex items-center justify-center gap-2"
+          >
+            <ArrowRight className="w-5 h-5" />
+            Mashg'ulotni boshlash
+          </button>
+        </div>
       ) : isFinished ? (
         /* Deck Completed Screen */
-        <div className="p-8 rounded-3xl border border-slate-200/60 dark:border-slate-800/60 bg-white/50 dark:bg-slate-900/30 glass-card text-center flex flex-col items-center gap-6 shadow-2xl">
+        <div className="p-8 rounded-3xl border border-slate-200/60 dark:border-slate-800/60 bg-white/50 dark:bg-slate-900/30 glass-card text-center flex flex-col items-center gap-6 shadow-2xl animate-fade-in">
           <div className="w-16 h-16 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center">
             <RotateCcw className="w-8 h-8" />
           </div>
@@ -236,19 +347,47 @@ export default function CardContainer() {
         </div>
       ) : (
         /* Active Flashcard Board */
-        <div className="flex flex-col gap-6">
-          {/* Progress Header */}
-          <div className="flex items-center justify-between text-xs font-semibold text-slate-400">
-            <span>Savol: {currentIndex + 1} / {totalCards}</span>
-            <div className="w-32 h-2 rounded-full bg-slate-200 dark:bg-slate-800/80 overflow-hidden">
-              <div
-                className="h-full bg-primary-500 transition-all duration-300"
-                style={{ width: `${((currentIndex + 1) / totalCards) * 100}%` }}
-              ></div>
+        <div className="flex flex-col gap-6 animate-fade-in">
+          
+          {/* Progress Header & Timer */}
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white/30 dark:bg-slate-900/20 p-4 rounded-2xl border border-slate-200/50 dark:border-slate-800/30">
+            <div className="flex items-center gap-3 text-xs font-bold text-slate-500 dark:text-slate-400">
+              <span>Savol: {currentIndex + 1} / {totalCards}</span>
+              <div className="w-32 h-2.5 rounded-full bg-slate-200 dark:bg-slate-800 overflow-hidden">
+                <div
+                  className="h-full bg-primary-500 transition-all duration-300"
+                  style={{ width: `${((currentIndex + 1) / totalCards) * 100}%` }}
+                ></div>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-2 self-end sm:self-auto">
+              {/* Dynamic Color-coded Timer */}
+              <div className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl border text-xs font-extrabold transition-all duration-300 ${
+                timeLeft < totalTime * 0.2
+                  ? 'bg-rose-500/10 text-rose-600 dark:text-rose-400 border-rose-500/20 animate-pulse'
+                  : timeLeft < totalTime * 0.5
+                  ? 'bg-amber-500/10 text-amber-600 dark:text-amber-400 border-amber-500/20'
+                  : 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-500/20'
+              }`}>
+                <Clock className="w-4 h-4" />
+                <span>Vaqt: {formatTime(timeLeft)}</span>
+              </div>
+
+              {/* End early button */}
+              <button
+                onClick={() => {
+                  setTimerActive(false);
+                  setForceFinished(true);
+                  addToast("Mashg'ulot yakunlandi.", 'info');
+                }}
+                className="px-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-800 text-slate-500 dark:text-slate-400 hover:text-rose-500 dark:hover:text-rose-400 hover:bg-rose-500/5 dark:hover:bg-rose-500/10 hover:border-rose-500/20 text-xs font-bold transition-all duration-200"
+              >
+                Tugatish
+              </button>
             </div>
           </div>
 
-          {/* 3D Flippable Card */}
           {/* 3D Flippable Card */}
           <div
             onClick={() => setIsFlipped(!isFlipped)}

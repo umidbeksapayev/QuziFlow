@@ -120,3 +120,69 @@ export const getDashboardStats = async (req, res) => {
     return res.status(500).json({ message: 'Statistikalarni yuklashda xatolik' });
   }
 };
+
+export const syncStats = async (req, res) => {
+  try {
+    const userId = req.user.id;
+    const { cardStatuses, statistics } = req.body;
+
+    if (statistics) {
+      const todayStr = new Date().toISOString().split('T')[0];
+      await prisma.userStatistics.upsert({
+        where: { userId },
+        update: {
+          totalSolved: statistics.totalSolved,
+          correctAnswers: statistics.correctAnswers,
+          wrongAnswers: statistics.wrongAnswers,
+          accuracy: statistics.accuracy,
+          streak: statistics.streak,
+          lastActiveDate: statistics.lastActiveDate || todayStr,
+        },
+        create: {
+          userId,
+          totalSolved: statistics.totalSolved,
+          correctAnswers: statistics.correctAnswers,
+          wrongAnswers: statistics.wrongAnswers,
+          accuracy: statistics.accuracy,
+          streak: statistics.streak,
+          lastActiveDate: statistics.lastActiveDate || todayStr,
+        },
+      });
+    }
+
+    if (cardStatuses && Array.isArray(cardStatuses)) {
+      const upsertPromises = cardStatuses.map(status => {
+        return prisma.userCardStatus.upsert({
+          where: {
+            userId_cardId: { userId, cardId: status.cardId }
+          },
+          update: {
+            repetitions: status.repetitions,
+            interval: status.interval,
+            easinessFactor: status.easinessFactor,
+            nextReviewAt: new Date(status.nextReviewAt),
+            lastResponse: status.lastResponse,
+          },
+          create: {
+            userId,
+            cardId: status.cardId,
+            repetitions: status.repetitions,
+            interval: status.interval,
+            easinessFactor: status.easinessFactor,
+            nextReviewAt: new Date(status.nextReviewAt),
+            lastResponse: status.lastResponse,
+          }
+        });
+      });
+      
+      if (upsertPromises.length > 0) {
+        await prisma.$transaction(upsertPromises);
+      }
+    }
+
+    return res.json({ message: 'Statistikalar muvaffaqiyatli sinxronizatsiya qilindi' });
+  } catch (error) {
+    console.error('Sync error:', error);
+    return res.status(500).json({ message: 'Sinxronizatsiyada xatolik yuz berdi' });
+  }
+};
